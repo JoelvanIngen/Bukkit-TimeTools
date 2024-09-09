@@ -1,0 +1,8 @@
+name: TimeTools
+version: 0.0.1-SNAPSHOT
+main: com.github.joelvaningen.timetools.TimeTools
+api-version: 1.21.1
+commands:
+  time:
+    description: Forward time without resetting local difficulty
+    usage: /<command> [time | clocktime | tick amount]
