@@ -15,7 +15,8 @@ public class CommandTimeGet extends BaseTimeCommand {
     public boolean execute(Player player, String[] args) {
         MinecraftTime time = new MinecraftTime(player.getWorld().getTime());
 
-        player.sendMessage("Current time is " + time.toString() + " (" + time.getTicks() + "/24000 ticks).");
+        plugin.getMessageTools().sendMessage(player,
+                "Current time is " + time.toString() + " (" + time.getTicks() + "/24000 ticks).");
         return true;
     }
 }

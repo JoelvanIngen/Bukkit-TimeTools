@@ -1,7 +1,6 @@
 package com.github.joelvaningen.timetools.command;
 
 import com.github.joelvaningen.timetools.TimeTools;
-import com.github.joelvaningen.timetools.messaging.MessageTools;
 import com.github.joelvaningen.timetools.time.MinecraftTime;
 import org.bukkit.entity.Player;
 
@@ -117,6 +116,6 @@ public class CommandTimeSet extends BaseTimeCommand {
     private void announceNewTime(Player player) {
         MinecraftTime time = new MinecraftTime(player.getWorld().getTime());
         String message = player.getName() + " set the time to " + time.toString() + " (" + time.getTicks() + "/24000 ticks).";
-        MessageTools.messageAllPlayers(player.getServer(), message);
+        plugin.getMessageTools().messageAllPlayers(player.getServer(), message);
     }
 }
