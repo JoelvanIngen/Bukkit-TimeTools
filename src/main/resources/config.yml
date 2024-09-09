@@ -1,0 +1,8 @@
+# Never ever change this value!
+version: 1
+
+# All messaging uses MiniMessage format
+# Placeholders are denoted as ${placeholder}, and will be replaced by their actual values.
+messages:
+  # Message format
+  format: "[Time] ${message}"
