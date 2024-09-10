@@ -1,5 +1,5 @@
 name: TimeTools
-version: 0.1.1-SNAPSHOT
+version: 0.2.0-SNAPSHOT
 main: com.github.joelvaningen.timetools.TimeTools
 api-version: 1.21.1
 commands:
