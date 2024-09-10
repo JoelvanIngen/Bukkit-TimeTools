@@ -8,7 +8,7 @@ java {
 }
 
 group = "com.github.joelvaningen.timecommands"
-version = "0.1.0"
+version = "0.1.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
