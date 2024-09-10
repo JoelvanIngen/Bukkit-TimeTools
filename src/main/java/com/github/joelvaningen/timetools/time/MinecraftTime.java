@@ -20,7 +20,7 @@ public class MinecraftTime {
 
     public String toString() {
         int hours = (int) ((ticks / 1_000) + 6) % 24;
-        int minutes = (int) (((double) (ticks % 1_000)) / TICKS_PER_MINUTE);
+        int minutes = (int) Math.round(((double) (ticks % 1_000)) / TICKS_PER_MINUTE);
 
         return String.format("%02d:%02d", hours, minutes);
     }
