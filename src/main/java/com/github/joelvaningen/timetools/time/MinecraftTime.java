@@ -14,7 +14,7 @@ public class MinecraftTime {
     }
 
     public static MinecraftTime fromComponents(int hours, int minutes) {
-        long ticks = (long) hours * 1_000L + (long) (minutes * TICKS_PER_MINUTE);
+        long ticks = (long) ((hours - 6) % 24) * 1_000L + (long) (minutes * TICKS_PER_MINUTE);
         return new MinecraftTime(ticks);
     }
 
