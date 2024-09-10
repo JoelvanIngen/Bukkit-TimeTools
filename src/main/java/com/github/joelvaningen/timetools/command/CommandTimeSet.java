@@ -3,6 +3,7 @@ package com.github.joelvaningen.timetools.command;
 import com.github.joelvaningen.timetools.TimeTools;
 import com.github.joelvaningen.timetools.time.MinecraftTime;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -53,6 +54,10 @@ public class CommandTimeSet extends BaseTimeCommand {
 
     @Override
     public boolean execute(Player player, String[] args) {
+        if (!ensurePermissions(player)) {
+            return false;
+        }
+
         String timeString = args[0];
 
         if (!tryExecuteReportSuccess(player, timeString)) {
@@ -117,5 +122,13 @@ public class CommandTimeSet extends BaseTimeCommand {
         MinecraftTime time = new MinecraftTime(player.getWorld().getTime());
         String message = player.getName() + " set the time to " + time.toString() + " (" + time.getTicks() + "/24000 ticks).";
         plugin.getMessageTools().messageAllPlayers(player.getServer(), message);
+    }
+
+    private boolean ensurePermissions(Player player) {
+        return player.hasPermission(getPermission());
+    }
+
+    public @NotNull String getPermission() {
+        return "timetools.time.set";
     }
 }
