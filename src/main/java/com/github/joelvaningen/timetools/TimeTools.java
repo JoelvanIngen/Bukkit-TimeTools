@@ -3,13 +3,13 @@ package com.github.joelvaningen.timetools;
 import com.github.joelvaningen.timetools.command.TimeCommand;
 import com.github.joelvaningen.timetools.config.TTConfigLoader;
 import com.github.joelvaningen.timetools.messaging.MessageTools;
-import org.bukkit.configuration.file.YamlConfiguration;
+import org.apache.commons.lang3.NotImplementedException;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
 public class TimeTools extends JavaPlugin {
-    private TTConfigLoader configLoader;
-    private YamlConfiguration config;
+    private TTConfigLoader config;
     private MessageTools messageTools;
 
     public void onEnable() {
@@ -25,8 +25,7 @@ public class TimeTools extends JavaPlugin {
     }
 
     private void loadConfig() {
-        this.configLoader = new TTConfigLoader(this);
-        this.config = this.configLoader.getConfig();
+        this.config = new TTConfigLoader(this);
     }
 
     private void loadMessageTools() {
@@ -34,7 +33,11 @@ public class TimeTools extends JavaPlugin {
     }
 
     @Override
-    public @NotNull YamlConfiguration getConfig() {
+    public @NotNull FileConfiguration getConfig() {
+        throw new NotImplementedException("TimeTools().getConfig() was called, but should not be used!");
+    }
+
+    public @NotNull TTConfigLoader getConfigLoader() {
         return config;
     }
 

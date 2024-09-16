@@ -1,7 +1,7 @@
 package com.github.joelvaningen.timetools.time;
 
 public class MinecraftTime {
-    private static final double TICKS_PER_MINUTE = 1000./60.;
+    private static final double TICKS_PER_MINUTE = 1000. / 60.;
 
     private final long ticks;
 
@@ -24,12 +24,4 @@ public class MinecraftTime {
 
         return String.format("%02d:%02d", hours, minutes);
     }
-
-//    private String prependZero(String s) {
-//        if (s.length() == 1) {
-//            return "0" + s;
-//        } else {
-//            return s;
-//        }
-//    }
 }

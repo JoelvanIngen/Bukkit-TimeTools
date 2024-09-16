@@ -46,7 +46,7 @@ public class TimeCommand implements CommandExecutor, TabCompleter {
 
     private boolean ensurePlayer(CommandSender sender) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("You must be a player to use this command.");
+            plugin.getMessageTools().sendMessage(sender, plugin.getConfigLoader().getMessages().getString("not-player"), null);
             return false;
         }
         return true;
