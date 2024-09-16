@@ -15,13 +15,14 @@ public class CommandTimeGet extends BaseTimeCommand {
     @Override
     public boolean execute(Player player, String[] args) {
         if (!ensurePermission(player)) {
-            return false;
+            plugin.getMessageTools().sendMessage(player, plugin.getConfigLoader().getMessages().getString("no-permission"), null);
+            return true;
         }
 
         MinecraftTime time = new MinecraftTime(player.getWorld().getTime());
 
         plugin.getMessageTools().sendMessage(player,
-                "Current time is " + time.toString() + " (" + time.getTicks() + "/24000 ticks).");
+                "Current time is " + time.toString() + " (" + time.getTicks() + "/24000 ticks).", null);
         return true;
     }
 
