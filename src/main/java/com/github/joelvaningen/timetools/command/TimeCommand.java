@@ -41,7 +41,15 @@ public class TimeCommand implements CommandExecutor, TabCompleter {
         completions.addAll(commandTimeSet.getValidTimeStrings());
         completions.addAll(commandTimeSet.getExampleClockTimes());
         completions.addAll(commandTimeSet.getExampleTargetTicks());
-        return completions;
+
+        List<String> validCompletions = new ArrayList<>();
+        for (String completion : completions) {
+            if (completion.startsWith(args[0])) {
+                validCompletions.add(completion);
+            }
+        }
+
+        return validCompletions;
     }
 
     private boolean ensurePlayer(CommandSender sender) {
