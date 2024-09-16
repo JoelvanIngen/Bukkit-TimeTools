@@ -54,7 +54,7 @@ public class TimeCommand implements CommandExecutor, TabCompleter {
 
     private boolean ensurePlayer(CommandSender sender) {
         if (!(sender instanceof Player)) {
-            plugin.getMessageTools().sendMessage(sender, plugin.getConfigLoader().getMessages().getString("not-player"), null);
+            plugin.getMessageTools().sendMessage(sender, plugin.getConfigLoader().getMessages().getString("static.not-player"));
             return false;
         }
         return true;

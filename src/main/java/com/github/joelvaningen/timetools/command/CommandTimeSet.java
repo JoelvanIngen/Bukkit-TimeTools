@@ -55,7 +55,7 @@ public class CommandTimeSet extends BaseTimeCommand {
     @Override
     public boolean execute(Player player, String[] args) {
         if (!ensurePermissions(player)) {
-            plugin.getMessageTools().sendMessage(player, plugin.getConfigLoader().getMessages().getString("no-permission"), null);
+            plugin.getMessageTools().sendMessage(player, plugin.getConfigLoader().getMessages().getString("static.no-permission"));
             return true;
         }
 
@@ -121,8 +121,8 @@ public class CommandTimeSet extends BaseTimeCommand {
 
     private void announceNewTime(Player player) {
         MinecraftTime time = new MinecraftTime(player.getWorld().getTime());
-        String message = player.getName() + " set the time to " + time.toString() + " (" + time.getTicks() + "/24000 ticks).";
-        plugin.getMessageTools().messageAllPlayers(player.getServer(), message, null);
+        plugin.getMessageTools().messageAllPlayers(player.getServer(),
+                "<grey>" + player.getName() + " set the time to " + time.toString() + " (" + time.getTicks() + "/24000 ticks).</grey>");
     }
 
     private boolean ensurePermissions(Player player) {
